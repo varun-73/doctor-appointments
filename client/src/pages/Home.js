@@ -34,9 +34,9 @@ function Home() {
     }, []);
     return (
         <Layout>
-            <Row gutter={20}>
+            <Row gutter={16} >
                 {doctor.map((doctor)=>(
-                    <Col span={8} xs={24} sm={24} lg={8}>
+                    <Col style={{marginBottom:'16px', borderRadius:'100px'}} span={8} xs={24} sm={24} lg={8}>
                         <Doctor doctor={doctor}/>
                     </Col>
                 ))}

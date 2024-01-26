@@ -64,18 +64,25 @@ label{
   font-size: 1rem;
 }
 .card{
-  box-shadow: 0 0 2px rgba(232, 211, 211, 0.931);
-  border-radius: 0 ;
+  box-shadow: 0 0 2px rgba(30, 81, 3, 0.931);
+  border-radius:'15px';
+  border: 'none';
+   border:' 2px solid #005555 ';
+   transition: transform 0.4s ease;
+   padding: 50px;
+}
+
+.card:hover{
+  transform: scale(0.97);
 }
 
 .primary-button{
   background-color: #005555 !important;
   border-color: #005555;
   height: 40px;
-  width: 100%;
+  width: 170px;
   color: white !important;
   font-size: 16px !important;
-  
 }
 .full-width-button{
   width:100% !important;

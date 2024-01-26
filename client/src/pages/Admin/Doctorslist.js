@@ -72,7 +72,7 @@ const Doctorslist = () => {
       render : (record, text) => moment(record.createdAt).format("DD-MM-YYYY"),
     },
     {
-      title:'status',
+      title:'Status',
       dataIndex:'status'
     },
     {

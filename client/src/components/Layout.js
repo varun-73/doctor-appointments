@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
             name: "Doctors",
             path: "/admin/doctors",
             icon: "ri-user-star-line",
-        },
+        }
     ];
     const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor ? doctorMenu :  userMenu;
     const role = user ?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "User";
@@ -72,20 +72,21 @@ const Layout = ({ children }) => {
                     </div>
 
                     <div className='menu'>
+                        
                         {menuToBeRendered.map((menu) => {
                             const isActive = location.pathname === menu.path
                             return (
                                 <div className={`d-flex menu-item ${isActive && 'active-menu-item'}`}>
-                                    <span className='side-icon'><i className={menu.icon}></i></span>
+                                   <Link to={menu.path}> <span className='side-icon'><i className={menu.icon}></i></span></Link>
                                     {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
                                 </div>
                             );
                         })}
                         <div className={`d-flex menu-item`} onClick={() => {
                             localStorage.clear();
-                            navigate('/login')
+                            navigate('/login');
                         }}>
-                            <span className='side-icon'><i className="ri-logout-circle-line"></i></span>
+                           <Link to='/logout'><span className='side-icon'><i className="ri-logout-circle-line"></i></span></Link>
                             {!collapsed && <Link to='/logout'>Logout</Link>}
                         </div>
 
@@ -101,7 +102,7 @@ const Layout = ({ children }) => {
                             <i className='ri-notification-line header-action-icon px-3'></i>
                             </Badge>
                            
-                            <Link className='anchor mx-2' to='/profile'>{user?.name}</Link>
+                            <Link className='anchor mx-2' to=''>{user?.name}</Link>
                         </div>
                     </div>
 
