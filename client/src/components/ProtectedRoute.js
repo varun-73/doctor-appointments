@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios';
 import { hideLoading, showLoading } from '../redux/alertsSlice';
-import { setUser} from '../redux/userSlice';
+import { setUser } from '../redux/userSlice';
 const ProtectedRoute = (props) => {
     const { user } = useSelector((state) => state.user);
     const dispatch = useDispatch()
@@ -11,7 +11,7 @@ const ProtectedRoute = (props) => {
     const getUser = async () => {
         try {
             dispatch(showLoading())
-            const response = await axios.post('/api/user/get-user-info-by-id', { token: localStorage.getItem("token") }, {
+            const response = await axios.post('https://doctor-appointment-lqtk.onrender.com/api/user/get-user-info-by-id', { token: localStorage.getItem("token") }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
@@ -32,7 +32,7 @@ const ProtectedRoute = (props) => {
     }
 
     useEffect(() => {
-        if (!user ) {
+        if (!user) {
             getUser();
         }
 

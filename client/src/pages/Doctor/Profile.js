@@ -20,7 +20,7 @@ const Profile = () => {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/doctor/update-doctor-profile",
+        "https://doctor-appointment-lqtk.onrender.com/api/doctor/update-doctor-profile",
         {
           ...values,
           userId: user._id,
@@ -53,7 +53,7 @@ const Profile = () => {
   const getDoctorData = async () => {
     try {
       dispatch(showLoading())
-      const response = await axios.post('/api/doctor/get-doctor-info-by-user-id',
+      const response = await axios.post('https://doctor-appointment-lqtk.onrender.com/api/doctor/get-doctor-info-by-user-id',
         {
           userId: params.userId,
         }, {

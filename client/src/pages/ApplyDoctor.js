@@ -17,20 +17,20 @@ const ApplyDoctor = () => {
         try {
             dispatch(showLoading());
             const response = await axios.post(
-                "/api/user/apply-doctor-account", 
+                "https://doctor-appointment-lqtk.onrender.com/api/user/apply-doctor-account",
                 {
-                     ...values, 
-                     userId: user._id, 
-                     timings : [
+                    ...values,
+                    userId: user._id,
+                    timings: [
                         values.timings[0].format("HH:mm"),
                         values.timings[1].format("HH:mm"),
-                      ],
+                    ],
                 },
                 {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
-            });
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                });
             dispatch(hideLoading());
             if (response.data.success) {
                 toast.success(response.data.message);

@@ -11,7 +11,7 @@ const Login = () => {
     const onFinish = async (values) => {
         try {
             dispatch(showLoading());
-            const response = await axios.post("/api/user/login", values);
+            const response = await axios.post("https://doctor-appointment-lqtk.onrender.com/api/user/login", values);
             dispatch(hideLoading());
             if (response.data.success) {
                 toast.success(response.data.message);
@@ -42,8 +42,8 @@ const Login = () => {
                     </Form.Item>
 
                     <div className='d-flex flex-column'>
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit'>LOGIN</Button><br/>
-                    <Link to='/register' className='anchor '>CLICK HERE TO REGISTER</Link>
+                        <Button className='primary-button my-2 full-width-button' htmlType='submit'>LOGIN</Button><br />
+                        <Link to='/register' className='anchor '>CLICK HERE TO REGISTER</Link>
 
                     </div>
                 </Form>

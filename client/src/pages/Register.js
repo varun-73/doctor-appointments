@@ -8,10 +8,10 @@ import { hideLoading, showLoading } from '../redux/alertsSlice';
 const Register = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const onFinish = async(values) => {
+    const onFinish = async (values) => {
         try {
             dispatch(showLoading());
-            const response = await axios.post('/api/user/register', values);
+            const response = await axios.post('https://doctor-appointment-lqtk.onrender.com/api/user/register', values);
             dispatch(hideLoading());
             if (response.data.success) {
                 toast.success(response.data.message);
@@ -23,7 +23,7 @@ const Register = () => {
         }
         catch (error) {
             dispatch(hideLoading());
-            toast.error("Somthing went wrong...",error)
+            toast.error("Somthing went wrong...", error)
         }
     };
 
@@ -43,8 +43,8 @@ const Register = () => {
                     </Form.Item>
 
                     <div className='d-flex flex-column'>
-                    <Button className='primary-button my-2 full-width-button' htmlType='submit'>REGISTER</Button>
-                    <Link to='/login' className='anchor '>CLICK HERE TO LOGIN</Link>
+                        <Button className='primary-button my-2 full-width-button' htmlType='submit'>REGISTER</Button>
+                        <Link to='/login' className='anchor '>CLICK HERE TO LOGIN</Link>
 
                     </div>
                 </Form>
