@@ -35,7 +35,7 @@ const Login = () => {
                 <Form layout='vertical' onFinish={onFinish}>
 
                     <Form.Item label='Email' name='email'>
-                        <Input placeholder='Email' />
+                        <Input placeholder='Email' type='email' />
                     </Form.Item>
                     <Form.Item label='Password' name='password'>
                         <Input placeholder='Password' type='password' />
